@@ -1,4 +1,4 @@
-FROM node:6.0.0
+FROM node:8.9.4
 
 COPY . /disk1/website/view-view
 
