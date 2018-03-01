@@ -11,6 +11,7 @@ RUN addgroup -g 1000 node \
         curl \
         g++ \
         gcc \
+        libstdc++ \
         gnupg \
         libgcc \
         linux-headers \
