@@ -5,4 +5,4 @@ COPY package.json package-lock.json /usr/src/app/
 WORKDIR /usr/src/app
 RUN npm install --registry=https://registry.npm.taobao.org
 
-COPY . /usr/src/app
+CMD ["npm", "run", "dev"]
