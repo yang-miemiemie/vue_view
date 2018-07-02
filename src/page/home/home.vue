@@ -52,6 +52,12 @@
             label="价格">
           </el-table-column>
           <el-table-column
+            label="均价">
+            <template slot-scope="scope">
+              {{scope.row.price / scope.row.area | priceFilter }}
+            </template>
+          </el-table-column>
+          <el-table-column
             label="房型">
             <template slot-scope="scope">
               {{scope.row.roomcount}}室{{scope.row.hallcount}}厅
@@ -95,6 +101,13 @@
         tableData: [],
         regions: [],
         viliages: []
+      }
+    },
+    filters: {
+      priceFilter: function (value) {
+        // 截取当前数据到小数点后两位
+        let realVal = Number(value).toFixed(2)
+        return Number(realVal)
       }
     },
     methods: {
@@ -153,6 +166,7 @@
       this.loadForm()
     }
   }
+
 </script>
 <style lang="scss" rel="stylesheet/scss" scoped>
   .home {
