@@ -10,6 +10,10 @@
                 <li>
                   <router-link to="/"><a @click="changePage(1)" :class="{active:choosePage===1}">首页</a></router-link>
                 </li>
+                <li>
+                  <router-link to="/analysis"><a @click="changePage(2)" :class="{active:choosePage===2}">统计</a></router-link>
+                </li>
+
 
                 <li>
                   <a href="https://github.com/yang-miemiemie" target="_blank">Github</a>
@@ -42,14 +46,11 @@
       },
       // 通过路由改变导航文字样式
       getPage () {
+        console.log(this.$route.path)
         if (this.$route.path === '/' || this.$route.path === '/home') {
           this.changePage(1)
-        } else if (this.$route.path === '/goods') {
+        } else if (this.$route.path === '/analysis') {
           this.changePage(2)
-        } else if (this.$route.path === '/thanks') {
-          this.changePage(3)
-        } else {
-          this.changePage(4)
         }
       }
     },

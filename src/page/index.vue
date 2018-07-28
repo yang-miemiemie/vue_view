@@ -1,6 +1,6 @@
 <template>
   <div>
-    <y-header></y-header>
+    <y-header ref="header"></y-header>
     <router-view class="main"></router-view>
     <y-footer></y-footer>
   </div>
@@ -11,6 +11,12 @@
   export default {
     data () {
       return {}
+    },
+    methods: {
+      // 导航栏文字样式改变
+      changePage (v) {
+        this.$refs.header.changePage(v)
+      }
     },
     components: {
       YHeader,

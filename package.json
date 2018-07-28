@@ -17,7 +17,8 @@
     "vue-infinite-scroll": "^2.0.1",
     "vue-lazyload": "^1.0.5",
     "vue-router": "^3.0.1",
-    "vuex": "^2.3.1"
+    "vuex": "^2.3.1",
+    "echarts": "^3.8.5"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

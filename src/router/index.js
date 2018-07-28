@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 const Index = () => import('/page/index.vue')
 const Home = () => import('/page/home/home.vue')
+const Analysis = () => import('/page/analysis/home.vue')
 Vue.use(Router)
 
 export default new Router({
@@ -13,7 +14,8 @@ export default new Router({
       name: 'index',
       redirect: '/home',
       children: [
-        {path: 'home', component: Home}
+        {path: 'home', component: Home},
+        {path: 'analysis', component: Analysis}
       ]
     },
     {path: '*', redirect: '/home'}

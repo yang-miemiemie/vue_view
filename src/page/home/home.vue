@@ -40,8 +40,10 @@
             label="区域">
           </el-table-column>
           <el-table-column
-            prop="viliage"
             label="小区">
+            <template slot-scope="scope">
+              <el-button type="text" @click="toAnalysis(scope.row.viliage)">{{scope.row.viliage}}</el-button>
+            </template>
           </el-table-column>
           <el-table-column
             prop="area"
@@ -89,7 +91,7 @@
   </div>
 </template>
 <script>
-  import {regions, viliages, list} from '/api/index.js'
+  import {regionList, viliageList, houseList} from '/api/index.js'
   export default {
     data () {
       return {
@@ -113,15 +115,7 @@
     methods: {
       onRegionChange: function (val) {
         this.viliageFilter = ''
-        let params = {
-          params: {
-            region: val
-          }
-        }
-        viliages(params).then(res => {
-          let data = res
-          this.viliages = data
-        })
+        this.loadViliage()
         this.currentPage = 1
         this.loadForm()
       },
@@ -132,6 +126,29 @@
       toPage: function (page) {
         this.currentPage = page
         this.loadForm()
+      },
+      loadRegion: function () {
+        regionList().then(res => {
+          if (res.call_status === 0) {
+            let data = res.data
+            this.regions = data
+          }
+        })
+      },
+      loadViliage: function () {
+        let paramsarg = {}
+        if (this.regionFilter !== '') {
+          paramsarg['region'] = this.regionFilter
+        }
+        let params = {
+          params: paramsarg
+        }
+        viliageList(params).then(res => {
+          if (res.call_status === 0) {
+            let data = res.data
+            this.viliages = data
+          }
+        })
       },
       loadForm: function () {
         let paramsarg = {}
@@ -144,25 +161,30 @@
         let params = {
           params: paramsarg
         }
-        list(this.currentPage, this.pageSize, params).then(res => {
-          let data = res.list
-          this.tableData = data
-          this.totalCount = res.totalCount
+        houseList(this.currentPage, this.pageSize, params).then(res => {
+          if (res.call_status === 0) {
+            let pageInfo = res.pageInfo
+            this.tableData = pageInfo.dataList
+            this.totalCount = pageInfo.totalCount
+          }
         })
       },
       openWindow: function (url) {
         window.open(url)
+      },
+      toAnalysis: function (viliage) {
+        this.$parent.changePage(2)
+        this.$router.push({
+          path: '/analysis',
+          query: {
+            viliage: viliage
+          }
+        })
       }
     },
     mounted () {
-      regions().then(res => {
-        let data = res
-        this.regions = data
-      })
-      viliages().then(res => {
-        let data = res
-        this.viliages = data
-      })
+      this.loadRegion()
+      this.loadViliage()
       this.loadForm()
     }
   }
