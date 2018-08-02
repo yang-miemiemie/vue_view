@@ -18,3 +18,8 @@ export const monthAnalysis = (params) => {
   return http.fetchGet('http://111.231.63.89:8771/lianjiaold/view/month_analysis', params)
 }
 
+// 小区统计
+export const viliageAnalysis = (params) => {
+  return http.fetchGet('http://111.231.63.89:8771/lianjiaold/view/viliage_analysis', params)
+}
+

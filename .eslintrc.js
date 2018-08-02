@@ -12,6 +12,14 @@ module.exports = {
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
   // required to lint *.vue files
+  globals: {
+    //为百度地图设置规则
+    "BMap": true,
+    "BMAP_NORMAL_MAP": true,
+    "BMAP_HYBRID_MAP":true,
+    "BMAP_ANCHOR_TOP_LEFT":true,
+    "BMAP_ANCHOR_TOP_RIGHT":true
+  },
   plugins: [
     'html'
   ],

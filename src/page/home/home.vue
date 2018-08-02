@@ -172,10 +172,10 @@
       openWindow: function (url) {
         window.open(url)
       },
-      toAnalysis: function (viliage) {
-        this.$parent.changePage(2)
+      toDetail: function (viliage) {
+        // this.$parent.changePage(2)
         this.$router.push({
-          path: '/analysis',
+          path: '/detail',
           query: {
             viliage: viliage
           }
@@ -194,5 +194,9 @@
   .home {
     display: flex;
     flex-direction: column;
+  }
+  .filter-area {
+    background-color: #ffffff;
+    padding: 20px;
   }
 </style>

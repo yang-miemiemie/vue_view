@@ -15,7 +15,8 @@ module.exports = {
     'vue': 'Vue',
     'vue-router': 'VueRouter',
     'vuex': 'Vuex',
-    'axios': 'axios'
+    'axios': 'axios',
+    'BMap': 'BMap'
   },
   entry: {
     app: './src/main.js'
