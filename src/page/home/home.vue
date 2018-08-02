@@ -42,7 +42,7 @@
           <el-table-column
             label="小区">
             <template slot-scope="scope">
-              <el-button type="text" @click="toAnalysis(scope.row.viliage)">{{scope.row.viliage}}</el-button>
+              <el-button type="text" @click="toDetail(scope.row.viliage)">{{scope.row.viliage}}</el-button>
             </template>
           </el-table-column>
           <el-table-column
