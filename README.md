@@ -1,6 +1,7 @@
 # vue_demo
 
 > A Vue.js project
+演示地址： http://47.100.6.84/home
 
 ## Build Setup
 
