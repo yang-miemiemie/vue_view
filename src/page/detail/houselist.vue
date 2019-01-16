@@ -83,6 +83,9 @@
             this.totalCount = pageInfo.totalCount
           }
         })
+      },
+      openWindow: function (url) {
+        window.open(url)
       }
     },
     mounted () {
